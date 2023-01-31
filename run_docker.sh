@@ -12,4 +12,4 @@ docker images
 
 # Step 3:
 # Run flask app
-docker run -p 8000:80 flask_housing_api:latest
+docker run --name flask_housing_api -p 8000:80 flask_housing_api:latest
