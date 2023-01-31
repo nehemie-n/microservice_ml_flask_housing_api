@@ -1,4 +1,4 @@
-[![nehemie-n](https://circleci.com/gh/nehemie-n/microservice_ml_flask_housing_api.svg?style=svg)](https://github.com/nehemie-n/microservice_ml_flask_housing_api)
+[![nehemie-n](https://circleci.com/gh/nehemie-n/microservice_ml_flask_housing_api.svg?style=svg)](https://app.circleci.com/pipelines/github/nehemie-n/microservice_ml_flask_housing_api)
 
 ## **Project Overview**
 
@@ -59,13 +59,41 @@ source .devops/bin/activate
 
 ### **Running Locally `app.py`**
 
-    1. Standalone:  `python app.py`
+    1. Standalone: `python app.py`
     2. Run in Docker:  `./run_docker.sh`
     3. Run in Kubernetes:  `./run_kubernetes.sh`
 
-### **Kubernetes Steps**
+### **Steps**
 
-- Setup and Configure Docker locally
-- Setup and Configure Kubernetes locally
+- Setup and Configure Docker locally (Ubuntu). Check more at https://docs.docker.com/engine/install/ubuntu/
+
+  - `sudo apt-get remove docker docker-engine docker.io containerd runc`
+  - `sudo apt-get update`
+  - `sudo chmod a+r /etc/apt/keyrings/docker.gpg`
+  - `sudo apt-get update`
+  - `sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin` <br><br>
+
+- Install kubectl binary with curl on Linux
+
+  - `curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"`
+  - `sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl`
+  - Check its version: `kubectl version --client`<br><br>
+
+- Setup and Configure Minicube locally (Ubuntu). Check https://minikube.sigs.k8s.io/docs/start for more.
+
+  - `curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64`
+  - `sudo install minikube-linux-amd64 /usr/local/bin/minikube`
+  - Start your cluster by: `minikube start` <br><br>
+
 - Create Flask app in Container
+
+  - `./run_docker.sh` <br><br>
+
 - Run via kubectl
+
+  - `./run_kubernetes.sh`
+  - Step 4: Will need to be run manually and will need to replace _pod/flask-housing-api-64fd7f4598-s2rfq_ with the pod id (use `kubectl get pods`)
+
+- Stop and Delete local clusters
+  - `minikube stop`
+  - `minikube delete`

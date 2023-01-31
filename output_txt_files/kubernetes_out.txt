@@ -1,4 +1,5 @@
-kubectl port-forward pod/flask-housing-api-64fd7f4598-s2rfq --address 0.0.0.0 8000:80
+nehem@NEHEMIE-XPS MINGW64 /d/Learn/Cloud Devops/MicroServices/assigment/project-ml-microservice-kubernetes (master)
+$ kubectl port-forward pod/flask-housing-api-5c4cd7fc4-lsxcl --address 0.0.0.0 8000:80
 Forwarding from 0.0.0.0:8000 -> 80
 Handling connection for 8000
 Handling connection for 8000
@@ -12,11 +13,60 @@ Handling connection for 8000
 Handling connection for 8000
 Handling connection for 8000
 Handling connection for 8000
-Handling connection for 8000
-Handling connection for 8000
-Handling connection for 8000
-Handling connection for 8000
-Handling connection for 8000
-Handling connection for 8000
-Handling connection for 8000
-Handling connection for 8000
+
+
+
+kubectl get pods
+NAME                                READY   STATUS    RESTARTS   AGE
+flask-housing-api-5c4cd7fc4-lsxcl   1/1     Running   0          5m43s
+
+
+
+
+
+nehem@NEHEMIE-XPS MINGW64 /d/Learn/Cloud Devops/MicroServices/assigment/project-ml-microservice-kubernetes (master)
+$ ./make_prediction.sh
+Port: 8000
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   260  100    48  100   212   2060   9101 --:--:-- --:--:-- --:--:-- 11304{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+
+
+nehem@NEHEMIE-XPS MINGW64 /d/Learn/Cloud Devops/MicroServices/assigment/project-ml-microservice-kubernetes (master)
+$ ./make_prediction.sh
+Port: 8000
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   260  100    48  100   212   1935   8550 --:--:-- --:--:-- --:--:-- 10833{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+
+
+nehem@NEHEMIE-XPS MINGW64 /d/Learn/Cloud Devops/MicroServices/assigment/project-ml-microservice-kubernetes (master)
+$ ./make_prediction.sh
+Port: 8000
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   260  100    48  100   212   1957   8644 --:--:-- --:--:-- --:--:-- 10833{
+  "prediction": [
+    20.35373177134412
+  ]
+}
+
+
+nehem@NEHEMIE-XPS MINGW64 /d/Learn/Cloud Devops/MicroServices/assigment/project-ml-microservice-kubernetes (master)
+$ ./make_prediction.sh
+Port: 8000
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   260  100    48  100   212   1991   8797 --:--:-- --:--:-- --:--:-- 10833{
+  "prediction": [
+    20.35373177134412
+  ]
+}
